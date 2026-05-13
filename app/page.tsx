@@ -51,7 +51,7 @@ export default function Page() {
           Open to new opportunities
         </div>
         <h1>
-          <div className="line1">The Frontend</div>
+          <div className="line1">The Fullstack</div>
           <div className="line2">Developer</div>
         </h1>
         <p className="hero-sub">
@@ -90,7 +90,7 @@ export default function Page() {
               </div>
               <div>
                 &nbsp; <span className="t-key">"role"</span>:{" "}
-                <span className="t-val">"Frontend Developer"</span>,
+                <span className="t-val">"Fullstack Developer"</span>,
               </div>
               <div>
                 &nbsp; <span className="t-key">"company"</span>:{" "}
