@@ -1,509 +1,144 @@
-"use client"
-
-import { useEffect } from "react"
+import { Nav } from "@/components/ui/Nav"
 
 export default function Page() {
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) =>
-        entries.forEach((e) => {
-          if (e.isIntersecting) e.target.classList.add("visible")
-        }),
-      { threshold: 0.12 }
-    )
-    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el))
-
-    return () => observer.disconnect()
-  }, [])
-
   return (
     <>
-      <nav>
-        <div className="nav-logo">
-          <span>{"{"}</span> vs <span>{"}"}</span>
-        </div>
-        {/* <ul className="nav-links">
-          <li>
-            <a href="#about">About</a>
-          </li>
-          <li>
-            <a href="#skills">Skills</a>
-          </li>
-          <li>
-            <a href="#experience">Experience</a>
-          </li>
-          <li>
-            <a href="#projects">Projects</a>
-          </li>
-          <li>
-            <a href="#education">Education</a>
-          </li>
-        </ul> */}
-        <a href="mailto:vsompura3@gmail.com" className="nav-cta">
-          Get in touch
-        </a>
-      </nav>
+      <Nav />
+      <main className="pt-24 px-4 max-w-5xl mx-auto space-y-24 pb-24">
+        {/* HERO */}
+        <section className="flex flex-col items-center justify-center text-center mt-12 space-y-8">
+          <div className="bg-[var(--color-neo-pink)] text-black border-4 border-black px-6 py-2 font-mono font-bold uppercase rotate-[-2deg] shadow-[4px_4px_0px_0px_#000]">
+            Full Stack Engineer • 3 YOE
+          </div>
+          
+          <h1 className="font-display text-6xl sm:text-7xl md:text-9xl uppercase tracking-wider leading-none text-black drop-shadow-[4px_4px_0_#38bdf8]">
+            Vaibhav <br/> Sompura
+          </h1>
+          
+          <p className="max-w-2xl text-lg md:text-xl font-mono border-l-8 border-[var(--color-neo-green)] pl-6 text-left bg-white border-y-4 border-r-4 border-black p-4 shadow-[8px_8px_0_0_#000]">
+            Building fast, accessible UIs and robust backends. React, Next.js, FastAPI, Node.js.
+            Currently delivering production-ready software at Ksolves India Limited.
+          </p>
 
-      <section id="hero" className="hero">
-        <div className="hero-glow"></div>
-        <div className="hero-badge">
-          <div className="badge-dot"></div>
-          Open to new opportunities
-        </div>
-        <h1>
-          <div className="line1">The Fullstack</div>
-          <div className="line2">Developer</div>
-        </h1>
-        <p className="hero-sub">
-          Building fast, accessible, pixel-perfect UIs. React · Next.js ·
-          TypeScript · Node.js. Currently growing into full-stack at Ksolves
-          India.
-        </p>
-        <div className="hero-actions">
-          <a href="#experience" className="btn-primary">
-            View Experience
-          </a>
-          <a
-            href="https://github.com/vsompura3"
-            target="_blank"
-            className="btn-ghost"
-          >
-            GitHub ↗
-          </a>
-        </div>
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6 mt-8 w-full px-4 sm:px-0">
+            <a href="#experience" className="bg-[var(--color-neo-yellow)] border-4 border-black px-6 py-3 md:px-8 md:py-4 font-mono font-bold text-lg md:text-xl uppercase shadow-[4px_4px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_0_#000] transition-all text-center">
+              View Experience
+            </a>
+            <a href="/resume.pdf" download className="bg-[var(--color-neo-pink)] border-4 border-black px-6 py-3 md:px-8 md:py-4 font-mono font-bold text-lg md:text-xl uppercase shadow-[4px_4px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_0_#000] transition-all text-center">
+              Download CV
+            </a>
+            <a href="https://github.com/vsompura3" target="_blank" className="bg-white border-4 border-black px-6 py-3 md:px-8 md:py-4 font-mono font-bold text-lg md:text-xl uppercase shadow-[4px_4px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_0_#000] transition-all text-center">
+              GitHub ↗
+            </a>
+            <a href="https://www.linkedin.com/in/vaibhav-sompura" target="_blank" className="bg-[var(--color-neo-blue)] border-4 border-black px-6 py-3 md:px-8 md:py-4 font-mono font-bold text-lg md:text-xl uppercase shadow-[4px_4px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_0_#000] transition-all text-center">
+              LinkedIn ↗
+            </a>
+          </div>
+        </section>
 
-        <div className="terminal-wrap">
-          <div className="terminal">
-            <div className="terminal-bar">
-              <div className="dot dot-r"></div>
-              <div className="dot dot-y"></div>
-              <div className="dot dot-g"></div>
+        {/* SKILLS */}
+        <section id="skills" className="space-y-8">
+          <h2 className="font-display text-4xl md:text-5xl uppercase tracking-wider text-black bg-[var(--color-neo-blue)] inline-block px-4 py-2 border-4 border-black shadow-[4px_4px_0_0_#000] -rotate-1">
+            Technical Arsenal
+          </h2>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="neo-card p-6 flex flex-col gap-4">
+              <h3 className="font-display text-2xl uppercase border-b-4 border-black pb-2">Frontend</h3>
+              <div className="flex flex-wrap gap-2 font-mono text-sm font-bold">
+                <span className="bg-[var(--color-neo-yellow)] border-2 border-black px-3 py-1">React.js</span>
+                <span className="bg-[var(--color-neo-pink)] border-2 border-black px-3 py-1">Next.js</span>
+                <span className="bg-white border-2 border-black px-3 py-1">TypeScript</span>
+                <span className="bg-white border-2 border-black px-3 py-1">Tailwind CSS</span>
+                <span className="bg-white border-2 border-black px-3 py-1">React Query</span>
+              </div>
             </div>
-            <div className="terminal-body">
-              <div>
-                <span className="t-prompt">$</span>{" "}
-                <span className="t-cmd">cat vaibhav.json</span>
+
+            <div className="neo-card p-6 flex flex-col gap-4 bg-[var(--color-neo-green)]">
+              <h3 className="font-display text-2xl uppercase border-b-4 border-black pb-2">Backend</h3>
+              <div className="flex flex-wrap gap-2 font-mono text-sm font-bold">
+                <span className="bg-white border-2 border-black px-3 py-1">Node.js</span>
+                <span className="bg-[var(--color-neo-blue)] border-2 border-black px-3 py-1">FastAPI</span>
+                <span className="bg-white border-2 border-black px-3 py-1">Express</span>
+                <span className="bg-white border-2 border-black px-3 py-1">Python</span>
               </div>
-              <div>&nbsp;</div>
-              <div>
-                <span className="t-comment">{" {"}</span>
-              </div>
-              <div>
-                &nbsp; <span className="t-key">"role"</span>:{" "}
-                <span className="t-val">"Fullstack Developer"</span>,
-              </div>
-              <div>
-                &nbsp; <span className="t-key">"company"</span>:{" "}
-                <span className="t-val">"Ksolves India Limited"</span>,
-              </div>
-              <div>
-                &nbsp; <span className="t-key">"stack"</span>: [
-                <span className="t-val2">"React"</span>,{" "}
-                <span className="t-val2">"Next.js"</span>,{" "}
-                <span className="t-val2">"TypeScript"</span>,{" "}
-                <span className="t-val2">"Node.js"</span>],
-              </div>
-              <div>
-                &nbsp; <span className="t-key">"exp"</span>:{" "}
-                <span className="t-val">"2+ years"</span>,
-              </div>
-              <div>
-                &nbsp; <span className="t-key">"education"</span>:{" "}
-                <span className="t-val">"MCA — CGPA 8.81"</span>,
-              </div>
-              <div>
-                &nbsp; <span className="t-key">"status"</span>:{" "}
-                <span className="t-val2">"available"</span>
-              </div>
-              <div>
-                <span className="t-comment">{"}"}</span>
-              </div>
-              <div>&nbsp;</div>
-              <div>
-                <span className="t-arrow">→</span>{" "}
-                <span className="t-comment">
-                  Ready to build something great
-                </span>
+            </div>
+
+            <div className="neo-card p-6 flex flex-col gap-4">
+              <h3 className="font-display text-2xl uppercase border-b-4 border-black pb-2">Data & Tools</h3>
+              <div className="flex flex-wrap gap-2 font-mono text-sm font-bold">
+                <span className="bg-[var(--color-neo-pink)] border-2 border-black px-3 py-1">PostgreSQL</span>
+                <span className="bg-[var(--color-neo-yellow)] border-2 border-black px-3 py-1">MongoDB</span>
+                <span className="bg-white border-2 border-black px-3 py-1">Azure OpenAI</span>
+                <span className="bg-white border-2 border-black px-3 py-1">Git</span>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="about">
-        <div className="container">
-          <div className="about-grid reveal">
-            <div className="about-text">
-              <div className="section-label">// about me</div>
-              <h2 className="section-title">
-                Crafting UIs that
-                <br />
-                actually perform
-              </h2>
-              <p>
-                Frontend Developer with a strong focus on creating{" "}
-                <strong>interactive, user-friendly, and scalable</strong> web
-                applications. Skilled in building high-performance UIs using
-                React and Next.js with responsive, accessible designs across
-                devices.
-              </p>
-              <p>
-                Experienced in{" "}
-                <strong>complex state management, API integrations,</strong> and
-                delivering smooth user experiences. Currently expanding into
-                backend to become a well-rounded Full-Stack Developer.
-              </p>
-              <p>
-                Based in <strong>Dungarpur, Rajasthan</strong>. Working at{" "}
-                <strong>Ksolves India Limited</strong> since July 2023.
-              </p>
-            </div>
-            <div className="stat-grid">
-              <div className="stat-card">
-                <div className="stat-num green">2+</div>
-                <div className="stat-label">years experience</div>
-              </div>
-              <div className="stat-card">
-                <div className="stat-num blue">3</div>
-                <div className="stat-label">projects shipped</div>
-              </div>
-              <div className="stat-card">
-                <div className="stat-num orange">8.81</div>
-                <div className="stat-label">MCA CGPA</div>
-              </div>
-              <div className="stat-card">
-                <div className="stat-num green">10+</div>
-                <div className="stat-label">tech skills</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+        {/* EXPERIENCE */}
+        <section id="experience" className="space-y-8">
+          <h2 className="font-display text-4xl md:text-5xl uppercase tracking-wider text-black bg-[var(--color-neo-yellow)] inline-block px-4 py-2 border-4 border-black shadow-[4px_4px_0_0_#000] rotate-1">
+            Experience
+          </h2>
 
-      <section id="skills">
-        <div className="container">
-          <div className="reveal">
-            <div className="section-label">// tech stack</div>
-            <h2 className="section-title">What I work with</h2>
-            <p className="section-desc">
-              A curated toolkit built from real production work across frontend,
-              backend, and tooling.
-            </p>
-          </div>
-          <div className="skills-grid reveal">
-            <div className="skill-card">
-              <span className="skill-card-icon">⚛️</span>
-              <div className="skill-card-title">Frontend Core</div>
-              <div className="skill-tags">
-                <span className="tag accent">React</span>
-                <span className="tag accent">Next.js</span>
-                <span className="tag accent">TypeScript</span>
-                <span className="tag">JavaScript</span>
-                <span className="tag">HTML</span>
-                <span className="tag">CSS</span>
-              </div>
-            </div>
-            <div className="skill-card">
-              <span className="skill-card-icon">🎨</span>
-              <div className="skill-card-title">Styling & UI</div>
-              <div className="skill-tags">
-                <span className="tag green">TailwindCSS</span>
-                <span className="tag green">SASS</span>
-                <span className="tag green">ShadCN</span>
-                <span className="tag">Material UI</span>
-                <span className="tag">Styled Components</span>
-              </div>
-            </div>
-            <div className="skill-card">
-              <span className="skill-card-icon">🔄</span>
-              <div className="skill-card-title">State & Data</div>
-              <div className="skill-tags">
-                <span className="tag accent">React Query</span>
-                <span className="tag accent">Redux</span>
-                <span className="tag accent">Redux-Saga</span>
-                <span className="tag">WebSockets</span>
-              </div>
-            </div>
-            <div className="skill-card">
-              <span className="skill-card-icon">🖥️</span>
-              <div className="skill-card-title">Backend & APIs</div>
-              <div className="skill-tags">
-                <span className="tag green">Node.js</span>
-                <span className="tag green">Express</span>
-                <span className="tag">REST APIs</span>
-                <span className="tag">Azure OpenAI</span>
-                <span className="tag">Postman</span>
-              </div>
-            </div>
-            <div className="skill-card">
-              <span className="skill-card-icon">🗄️</span>
-              <div className="skill-card-title">Database</div>
-              <div className="skill-tags">
-                <span className="tag accent">PostgreSQL</span>
-                <span className="tag accent">MongoDB</span>
-              </div>
-            </div>
-            <div className="skill-card">
-              <span className="skill-card-icon">🛠️</span>
-              <div className="skill-card-title">Tools & Workflow</div>
-              <div className="skill-tags">
-                <span className="tag green">Git</span>
-                <span className="tag green">RBAC</span>
-                <span className="tag">React Native</span>
-                <span className="tag">CI/CD</span>
-                <span className="tag">SSR</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="experience">
-        <div className="container">
-          <div className="reveal">
-            <div className="section-label">// work history</div>
-            <h2 className="section-title">Experience</h2>
-            <p className="section-desc">
-              Building real products at Ksolves India Limited since July 2023.
-            </p>
-          </div>
-          <div className="timeline reveal">
-            <div className="timeline-item">
-              <div className="timeline-dot"></div>
-              <div className="timeline-header">
-                <div className="timeline-role">
-                  Frontend Lead — Client Project
+          <div className="space-y-8">
+            <div className="neo-card p-6 md:p-8 space-y-4">
+              <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 border-b-4 border-black pb-4">
+                <div>
+                  <h3 className="font-display text-2xl md:text-3xl uppercase">Frontend Lead</h3>
+                  <p className="font-mono font-bold text-[var(--color-neo-pink)] text-xl drop-shadow-[1px_1px_0_#000]">Ksolves India Limited</p>
                 </div>
-                <div className="timeline-period">Apr 2025 — Present</div>
+                <div className="bg-black text-white font-mono px-4 py-2 border-2 border-black">
+                  Apr 2025 – Present
+                </div>
               </div>
-              <div className="timeline-company">Ksolves India Limited</div>
-              <ul className="timeline-list">
-                <li>
-                  Drove <strong>architectural decisions</strong> as primary
-                  point of contact for complex UI logic.
-                </li>
-                <li>
-                  Built a <strong>SEO-friendly, server-side rendered</strong>{" "}
-                  app using Next.js + React Query.
-                </li>
-                <li>
-                  Delivered <strong>responsive, pixel-perfect designs</strong>{" "}
-                  with cross-browser compatibility.
-                </li>
-                <li>
-                  Implemented <strong>RBAC</strong>, collaborating with multiple
-                  vendors and DevOps teams for production/UAT releases.
-                </li>
+              <ul className="list-square list-inside space-y-2 font-mono text-lg ml-4">
+                <li>Directed frontend architecture for a large-scale enterprise Next.js app.</li>
+                <li>Optimized SEO & Performance via SSR and React Query.</li>
+                <li>Architected RBAC workflows and managed complex state.</li>
               </ul>
             </div>
 
-            <div className="timeline-item">
-              <div className="timeline-dot"></div>
-              <div className="timeline-header">
-                <div className="timeline-role">
-                  Full-Stack Developer — AI-Doc Assistant
+            <div className="neo-card p-6 md:p-8 space-y-4 bg-[var(--color-neo-pink)]">
+              <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 border-b-4 border-black pb-4">
+                <div>
+                  <h3 className="font-display text-2xl md:text-3xl uppercase">Full Stack Engineer (AI-Doc)</h3>
+                  <p className="font-mono font-bold text-white text-xl drop-shadow-[1px_1px_0_#000]">Ksolves India Limited</p>
                 </div>
-                <div className="timeline-period">Nov 2024 — Apr 2025</div>
+                <div className="bg-black text-white font-mono px-4 py-2 border-2 border-black">
+                  Nov 2024 – Apr 2025
+                </div>
               </div>
-              <div className="timeline-company">Ksolves India Limited</div>
-              <ul className="timeline-list">
-                <li>
-                  Led complete frontend with{" "}
-                  <strong>React, TailwindCSS, React Query, ShadCN</strong>.
-                </li>
-                <li>
-                  Designed REST API endpoints + integrated{" "}
-                  <strong>Azure OpenAI</strong> for an intelligent chat
-                  interface.
-                </li>
-                <li>
-                  Implemented <strong>real-time WebSocket</strong> updates for
-                  application responsiveness.
-                </li>
-                <li>
-                  Mentored frontend developers and drove architectural decisions
-                  in code reviews.
-                </li>
+              <ul className="list-square list-inside space-y-2 font-mono text-lg ml-4">
+                <li>Spearheaded UI with React, Tailwind, React Query & ShadCN.</li>
+                <li>Integrated Azure OpenAI for intelligent document chat.</li>
+                <li>Enabled real-time WebSockets communication.</li>
               </ul>
             </div>
 
-            <div className="timeline-item">
-              <div className="timeline-dot"></div>
-              <div className="timeline-header">
-                <div className="timeline-role">
-                  Frontend Developer — NiFi Automation &amp; Data Catalog
+            <div className="neo-card p-6 md:p-8 space-y-4">
+              <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 border-b-4 border-black pb-4">
+                <div>
+                  <h3 className="font-display text-2xl md:text-3xl uppercase">Frontend Engineer</h3>
+                  <p className="font-mono font-bold text-[var(--color-neo-blue)] text-xl drop-shadow-[1px_1px_0_#000]">Ksolves India Limited</p>
                 </div>
-                <div className="timeline-period">Sep 2023 — Oct 2024</div>
+                <div className="bg-black text-white font-mono px-4 py-2 border-2 border-black">
+                  Sep 2023 – Oct 2024
+                </div>
               </div>
-              <div className="timeline-company">Ksolves India Limited</div>
-              <ul className="timeline-list">
-                <li>
-                  Built UI for a <strong>NiFi automation</strong> application
-                  with custom components and backend API endpoints.
-                </li>
-                <li>
-                  Implemented <strong>Redux-Saga</strong> for complex state
-                  management.
-                </li>
-                <li>
-                  Worked on a Data Catalog app — built key components for{" "}
-                  <strong>Data Access Management</strong>.
-                </li>
-                <li>
-                  Created a <strong>mobile application POC</strong> using React
-                  Native and supported QA test case scenarios.
-                </li>
+              <ul className="list-square list-inside space-y-2 font-mono text-lg ml-4">
+                <li>Engineered workflow management UIs for NiFi Automation.</li>
+                <li>Managed complex app state using Redux Saga.</li>
               </ul>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="projects">
-        <div className="container">
-          <div className="reveal">
-            <div className="section-label">// notable work</div>
-            <h2 className="section-title">What I've built</h2>
-            <p className="section-desc">
-              Highlights from production projects and technical explorations.
-            </p>
-          </div>
-          <div className="projects-grid reveal">
-            <div className="project-card featured">
-              <div className="project-tag-row">
-                <span className="tag accent">Next.js</span>
-                <span className="tag accent">React Query</span>
-                <span className="tag">SSR</span>
-                <span className="tag">RBAC</span>
-              </div>
-              <div className="project-title">SEO-First SSR Platform</div>
-              <p className="project-desc">
-                Server-side rendered web application with React Query for
-                performant data fetching, pixel-perfect Figma implementation,
-                and role-based access control for multi-vendor production
-                delivery.
-              </p>
-            </div>
-
-            <div className="project-card">
-              <div className="project-tag-row">
-                <span className="tag green">Azure OpenAI</span>
-                <span className="tag accent">WebSockets</span>
-                <span className="tag">ShadCN</span>
-              </div>
-              <div className="project-title">AI-Doc Assistant Chat App</div>
-              <p className="project-desc">
-                Full-stack application with an intelligent document chat
-                interface powered by Azure OpenAI. Built real-time streaming
-                responses via WebSockets and designed clean REST API
-                architecture.
-              </p>
-            </div>
-
-            <div className="project-card">
-              <div className="project-tag-row">
-                <span className="tag accent">Redux-Saga</span>
-                <span className="tag">Material UI</span>
-                <span className="tag">Apache NiFi</span>
-              </div>
-              <div className="project-title">NiFi Automation UI</div>
-              <p className="project-desc">
-                Complex dataflow automation interface with Redux-Saga state
-                management, custom UI components, and seamless backend API
-                integration for enterprise-grade pipeline management.
-              </p>
-            </div>
-
-            <div className="project-card">
-              <div className="project-tag-row">
-                <span className="tag green">ReactJS</span>
-                <span className="tag green">React Native</span>
-                <span className="tag">Data Catalog</span>
-              </div>
-              <div className="project-title">Data Access Management</div>
-              <p className="project-desc">
-                Key UI components for a Data Catalog application with scalable
-                data access management. Also delivered a React Native mobile POC
-                and collaborated closely with the client's dev team.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="education">
-        <div className="container">
-          <div className="reveal">
-            <div className="section-label">// education</div>
-            <h2 className="section-title">Academic Background</h2>
-            <p className="section-desc">
-              Strong computer science foundation across postgraduate and
-              undergraduate levels.
-            </p>
-          </div>
-          <div className="edu-grid reveal">
-            <div className="edu-card">
-              <div className="edu-degree">Master of Computer Application</div>
-              <div className="edu-school">
-                Lovely Professional University, Phagwara
-              </div>
-              <div className="edu-meta">
-                <span className="edu-pill cgpa">CGPA 8.81</span>
-                <span className="edu-pill year">Aug 2022 – Jun 2024</span>
-              </div>
-            </div>
-            <div className="edu-card">
-              <div className="edu-degree">Bachelor of Computer Application</div>
-              <div className="edu-school">Sardar Patel University, Gujarat</div>
-              <div className="edu-meta">
-                <span className="edu-pill cgpa">CGPA 7.72</span>
-                <span className="edu-pill year">Aug 2017 – Sep 2020</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact">
-        <div className="container">
-          <div className="contact-inner reveal">
-            <div className="section-label">// let's connect</div>
-            <h2 className="section-title">Get in touch</h2>
-            <p className="section-desc">
-              Open to new opportunities, freelance projects, or just a good
-              conversation about frontend architecture.
-            </p>
-            <div className="contact-links">
-              <a href="mailto:vsompura3@gmail.com" className="contact-link">
-                ✉ vsompura3@gmail.com
-              </a>
-              <a
-                href="https://github.com/vsompura3"
-                target="_blank"
-                className="contact-link"
-              >
-                ⌥ github.com/vsompura3
-              </a>
-              <a
-                href="https://www.linkedin.com/in/vaibhav-sompura"
-                target="_blank"
-                className="contact-link"
-              >
-                ⟁ linkedin.com/in/vaibhav-sompura
-              </a>
-              <a href="tel:+919610030982" className="contact-link">
-                ☏ +91 9610030982
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <footer>
-        <p>
-          Built with ♥ by <span>Vaibhav Sompura</span> · 2025 · Dungarpur,
-          Rajasthan
-        </p>
+      </main>
+      
+      <footer className="border-t-4 border-black bg-[var(--color-neo-yellow)] py-8 text-center font-mono font-bold uppercase">
+        <p>Designed & Built by Vaibhav Sompura © 2025</p>
       </footer>
     </>
   )
